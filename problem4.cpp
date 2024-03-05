@@ -2,63 +2,63 @@
 #include <string>
 
 class Animal {
-private:
-    int energyN;
+protected:
+    int energy;
 
 public:
     // Constructor with default energy value
-    Animal() : energyN(50) {}
+    Animal() : energy(50) {}
 
     // Sleep function
-    void sleepN() {
+    void sleep() {
         std::cout << "I'm sleeping" << std::endl;
-        energyN += 1;
+        energy += 1;
     }
 
     // Eat function
-    void eatN() {
+    void eat() {
         std::cout << "I'm eating" << std::endl;
-        energyN += 1;
+        energy += 1;
     }
 
     // GetEnergy function
-    int getEnergyN() const {
-        return energyN;
+    int getEnergy() const {
+        return energy;
     }
 };
 
 class Dog : public Animal {
 private:
-    std::string nameN;
+    std::string name;
 
 public:
     // Constructor
-    Dog(const std::string& name) : nameN(name) {}
+    Dog(const std::string& n) : name(n) {}
 
     // Bark function
-    void barkN() {
+    void bark() {
         std::cout << "Bark!" << std::endl;
-        energyN -= 1;
+        energy -= 1;
     }
 
     // Run function
-    void runN() {
+    void run() {
         std::cout << "Running!" << std::endl;
-        energyN -= 3;
+        energy -= 3;
     }
 };
 
 int main() {
-    Dog dog1N("Max");
+    Dog dog1("Max");
 
     for (int i = 4; i < 9; i++) {
-        dog1N.sleepN();
-        dog1N.runN();
+        dog1.sleep();
+        dog1.run();
     }
 
-    dog1N.eatN();
-    dog1N.barkN();
-    std::cout << dog1N.getEnergyN() << std::endl;
+    dog1.eat();
+    dog1.bark();
+    std::cout << dog1.getEnergy() << std::endl;
 
     return 0;
 }
