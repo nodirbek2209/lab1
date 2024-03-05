@@ -25,11 +25,15 @@ int main() {
 
     // Input hours, minutes, and seconds from the user
     std::cout << "Enter hours: ";
-    std::cin >> hours;
-    std::cout << "Enter minutes: ";
-    std::cin >> minutes;
-    std::cout << "Enter seconds: ";
-    std::cin >> seconds;
+    std::cin >> hours>>minutes>>seconds;
+    
+    if (seconds>=60){
+        minutes+=1;
+    }
+    if (minutes>=60){
+        hours+=1;
+    }
+    
 
     // Create an instance of the Timer class
     Timer timerN(hours, minutes, seconds);
